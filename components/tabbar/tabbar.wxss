@@ -1,0 +1,35 @@
+/* components/tabbar/tabbar.wxss */
+.tabbar{
+  height: 60px;
+  border-top: 1px solid #e0e0e0;
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
+  left:0;
+  display: flex;
+  justify-content: space-around;
+  z-index:100;
+  background: #fff;
+}
+.tabbar .tabbar-item{
+  width: 60px;
+  height: 60px;
+}
+.tabbar .tabbar-item>.tabbar-item-icon{
+  height: 40px;
+  width: 100%;
+}
+.tabbar .tabbar-item>.tabbar-item-icon>image{
+  width: 40px;
+  height: 40px;
+  margin: 0 10px; 
+}
+.tabbar .tabbar-item>.tabbar-item-text{
+  text-align: center;
+  height: 20px;
+  line-height: 20px;
+  font-size: 13px;
+}
+.tabbar .choosed>.tabbar-item-text{
+  color: #4A90E2;
+}

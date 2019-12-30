@@ -1,0 +1,45 @@
+/* components/getRealName/getRealName.wxss */
+.get-real-name-shadow{
+  width: 100vw;
+  height:100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,.6);
+  z-index:101;
+  /* display: none; */
+}
+.get-real-name-shadow .get-real-name-main{
+  width: 70%;
+  /* padding: 10px 0; */
+  background: #fff;
+  position: absolute;
+  top: 50%;
+  left: 15%;
+  transform: translateY(-50%);
+  border-radius: 5px;
+  overflow: hidden;
+}
+.get-real-name-shadow .get-real-name-main .get-real-name-image{
+  width: 100%;
+  height: 230px;
+}
+.get-real-name-shadow .get-real-name-main .get-real-name-image image{
+  width: 80%;
+  height: 80%;
+  margin: 10% 10%;
+}
+.get-real-name-shadow .get-real-name-main .get-real-name-text{
+  font-size: 14px;
+  padding: 20px 20px 0;
+  color:#888;
+}
+.get-real-name-shadow .get-real-name-main .get-real-name-button{
+  width: 80%;
+  height:40px;
+  background:linear-gradient(132deg,rgba(84,184,246,1) 0%,rgba(46,93,207,1) 100%);
+  border-radius:20px;
+  line-height: 40px;
+  color:#fff;
+  margin: 20px auto;
+}

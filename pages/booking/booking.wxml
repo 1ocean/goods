@@ -1,0 +1,38 @@
+<my-title  my-property='{{title}}'></my-title>
+<view class='list'>
+  <view class='list-head'></view>
+  <view class='list-body'>
+    <view class='list-items-content' wx:if="{{list.length>0}}">
+      <view class='list-item' wx:for="{{list}}" wx:for-item="item" wx:key="index">
+        <view class="list-item-content">
+          <view class="list-item-main">
+            <view class='list-item-date' style='font-size:16px;'>
+              取件时间：{{item.doorTime}}
+            </view>
+            <view class="list-item-lables">
+              <text class="list-item-lable" wx:for="{{item.goodsTypes}}" wx:for-item="typeItem" wx:for-index="typeIndex" wx:key="typeIndex">{{typeItem.typeName}}</text>
+            </view>
+            <view class='list-item-date'>
+            <!-- <image src='/assets/imgs/png/peoples.png' style='height:20px;width:20px;vertical-align: middle;'></image> -->
+              取件人：{{item.courierName}} {{item.courierPhone}}
+            </view>
+            <view class='list-item-date'>
+            <!-- <image src='/assets/imgs/png/place.png' style='height:20px;width:20px;vertical-align: middle;'></image> -->
+              地　址：{{item.address}}
+            </view>
+            <view class="list-item-buttons">
+            <button data-index="{{index}}" bindtap='showDetail' class="renew-button">取消预约</button>
+              <button wx:if="{{item.goodsStatus!='取货中'}}" data-index="{{index}}" bindtap='showDetail' class="retrieval-button">我要寄件</button>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="empty-image" wx:else>
+      <image src='/assets/imgs/png/empty.png'></image>
+      <view class="empty-text">您还没有预约哦～</view>
+    </view>
+  </view>
+</view>
+<my-tabbar></my-tabbar>
+<i-toast id="toast" />

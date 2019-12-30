@@ -1,0 +1,13 @@
+<!--components/tabbar/tabbar.wxml-->
+<view class="tabbar">
+
+<view class="{{tabbarIndex==index?'tabbar-item choosed':'tabbar-item'}}" wx:for="{{tabbar}}" wx:for-item="item" wx:key="index" bindtap='navigator' data-index="{{index}}">
+  <view class="tabbar-item-icon">
+    <image src="{{tabbarIndex==index?item.choosedImg:item.img}}"></image>
+  </view>
+  <view class="tabbar-item-text">
+    {{item.text}}
+  </view>
+</view>
+  
+</view>

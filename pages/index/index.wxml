@@ -1,0 +1,42 @@
+<!--index.wxml-->
+<view class="head">
+  <image src="/assets/imgs/png/index_head_bg.png" class="head-bg"></image>
+  <image src="/assets/imgs/png/logo_text.png" class="logo-text"></image>
+</view>
+
+<view class="index-main">
+  <view class="index-navigators">
+    <view class="navigator-item" bindtap='jumpSend'>
+      <view class="navigator-item-icon">
+        <image src="/assets/imgs/png/scan.png"></image>
+      </view>
+      <view class="navigator-item-text">
+        扫码寄件
+      </view>
+    </view>
+    <view class="navigator-item" bindtap='jumpAppoint'>
+      <view class="navigator-item-icon">
+        <image src="/assets/imgs/png/people.png"></image>
+      </view>
+      <view class="navigator-item-text">
+        预约上门
+      </view>
+    </view>
+  </view>
+  <view class="index-process">
+    <view class="index-process-title">
+      <image src='/assets/imgs/svg/around.svg'></image>
+      <text>流程说明</text>
+    </view>
+    <image src='/assets/imgs/png/process.png' class="process-image"></image>
+  </view>
+</view>
+<my-tabbar tabbarIndex="0"></my-tabbar>
+<view class="login-shadow" wx:if="{{!hasUserInfo}}">
+  <view class="shadow-main">
+    <image class='shadow-logo' src='/assets/imgs/png/logo.png'></image>
+    <view class="shadow-title">东浩兰生一站式智慧托管仓</view>
+    <view class="shadow-impower">我们需要获得您的授权</view>
+     <button class="impower-button" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 授权 </button>
+  </view>
+</view>

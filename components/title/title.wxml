@@ -1,0 +1,10 @@
+<!--components/title-component.wxml-->
+<custom-component>
+  <view class='commonHead' style='color:{{myProperty.color?myProperty.color:"#000"}};background:{{myProperty.bg_color?myProperty.bg_color:"white"}};height:{{commonHeadHeight.titleHeight}}px;'>
+    <view class='commonHead-wrap'>
+      <view class='commonHead_right'>
+        <view class="back" bindtap='back' wx:if="{{myProperty.backUrl}}"><view class="back-icon"></view></view><view class='commonHead_right_text line1'>{{myProperty.name?myProperty.name:""}}</view>
+      </view>
+    </view>
+  </view>
+</custom-component>

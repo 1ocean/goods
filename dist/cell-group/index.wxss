@@ -1,0 +1,4 @@
+.i-cell-group{
+  display: flex;
+  flex-wrap: wrap;
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+    <title>椭圆形</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="3.41175939%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#54B8F6" offset="0%"></stop>
+            <stop stop-color="#2E5DCF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="列表" transform="translate(-34.000000, -277.000000)" fill="#FFFFFF" stroke="url(#linearGradient-1)" stroke-width="2">
+            <g id="foot" transform="translate(-13.000000, 255.000000)">
+                <g id="编组-11" transform="translate(29.000000, 18.000000)">
+                    <g id="编组-5">
+                        <g id="编组-6">
+                            <circle id="椭圆形" cx="24" cy="10" r="5"></circle>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,83 @@
+<!--index.wxml-->
+<my-title my-property='{{title}}'></my-title>
+<view class="send">
+  <view class="send-top"></view>
+  <view class='send-body'>
+    <view class="send-body-form-line">
+      <view>姓名</view>
+      <view>
+        <input placeholder='请输入姓名' placeholder-style='text-align:right;font-size:14px;' style="text-align:right;width:200px;font-size:16px;color:#404040;" bindinput="inputName" value="{{realNameInfo.name}}"></input>
+      </view>
+    </view>
+    <view class="send-body-form-line">
+      <view>手机号</view>
+      <view>
+        <input placeholder='请输入手机号码' maxlength='11' placeholder-style='text-align:right;font-size:14px;' style="text-align:right;width:200px;font-size:16px;color:#404040;" bindinput="inputPhone" value="{{realNameInfo.phone}}"></input>
+      </view>
+    </view>
+    <view class="send-body-form-line">
+      <view>身份证</view>
+      <view>
+        <input placeholder='请输入身份证号码' placeholder-style='text-align:right;font-size:14px;' style="text-align:right;width:200px;font-size:16px;color:#404040;" bindinput="inputID" value="{{realNameInfo.identityCard}}"></input>
+      </view>
+    </view>
+    <view class="send-body-form-line">
+      <view>联系地址</view>
+      <view>
+        <input placeholder='请输入联系地址' placeholder-style='text-align:right;font-size:14px;' style="text-align:right;width:calc(100vw - 136px);font-size:16px;color:#404040;" bindinput="inputAddress" value="{{realNameInfo.address}}"></input>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='agree'>
+  <checkbox-group bindchange="checkboxChange" style="display:inline-block">
+    <label class="checkbox">
+      <checkbox value="{{agreename}}" />
+    </label>
+  </checkbox-group>
+  <text style='font-size:16px;color:rgb(60,127,221)' bindtap='showContent'>我已阅读并同意条款内容</text>
+</view>
+<view class='bottom'>
+  <button class='bottom-button' bindtap='confirmRealName'>确认实名</button>
+</view>
+<view class='content' wx-if="{{contentshow}}">
+  <view class='cntent-agree'>
+   <view style='text-align:center;font-size:18px;margin-bottom:2%;font-weight:bold;'>实名条款</view>
+  <view style='height:80%;overflow:auto;flex:1'>
+    <view>1.本条款的缔约主体是您与南京东浩兰生国际供应链管理有限公司（以下简称供应链公司）。</view>
+    <view>2.您同意遵守供应链公司通过电子化方式存储您的托管物信息，以便于您随时在线了解托管情况，以及遵守本款小程序上公示的隐私政策及其不时修订的内容，同意供应链公司按照法律法规和隐私政策的规定处理您提供的订单信息。</view>
+    <view>3.赔偿条款</view>
+    <view>您已知悉并同意，供应链公司是按托管物的服务内容、托管的性质和收费模式，并非按托管物的价值、预期收益收费，本着公平合理的原则，双方遵守以下赔偿约定：</view>
+    <view>3.1 若因供应链公司原因造成托管物灭失、破损、短少的，供应链公司将按以下标准赔偿：</view>
+    <view>3.1.1 若您未选择保价，则供应链公司在二倍寄存费的限额内向您赔偿托管物的实际损失，双方另有约定的按约定执行。如您认为该赔偿标准不足以弥补您的损失，应根据托管物的实际价值选择等值保价服务。</view>
+    <view>3.1.2 若您已选择保价且支付保价费用的，则破损、短少时供应链公司将按照保价金额和实际损失的比例向您赔偿，托管物灭失时最高不超过您托管时保价的声明价值。</view>
+    <view>3.1.3 您基于托管物可能获得的收益、实际用途、商业机会等任何间接损失，供应链公司不承担赔偿责任。</view>
+    <view>3.2 声明价值：鉴于供应链公司无法评估托管物的实际价值，当托管物价值超过1000元时，您应当在寄件时向供应链公司如实声明；如您未声明并保价，视为价值不超过1000元。</view>
+    <view>4.理赔规则：</view>
+    <view>4.1 供应链公司提供的保价服务，系基于您声明的托管物价值收取费用，并基于托管物实际受损价值进行赔偿，请您如实按照托管物实际价值进行保价。供应链公司采取“理赔审查”的方式，您应在寄件时如实按照托管物的实际价值诚信保价，货物托运出现异常情形理赔时需提供托管物品的相关价值证明（如发票、合同、付款凭证等），如无法证明托管物品真实价值，不足额保价部分或超额保价部分均无法获得赔偿。</view>
+    <view>4.2 托管物损坏残值由供应链公司和您协商处理，如归您所有，供应链公司在核定赔偿金额时将扣减残值。</view>
+    <view>5.您确认，在您因工作需要使用本服务时，您已充分获得您工作单位的授权，并已充分阅读、理解并接受本条款的全部内容。</view>
+    <view>6.为符合法律法规对快件寄递安全的要求，保证托管物安全送达，您在寄件时应履行以下义务：</view>
+    <view>7.1 确保托管物不包含国家机关公文、国家保护野生动物和濒危野生动物及其制品、假冒伪劣和侵权物品等法律法规禁止和限制寄存的物品，不得通过本托管渠道危害国家安全、公共安全和公民、法人、其他组织的合法权益。</view>
+    <view>7.2 出示有效身份证件，配合供应链公司工作人员进行身份查验、身份信息登记，如果您是受他人委托管件，还应当提供委托人的有效身份证件。</view>
+    <view>7.3 配合进行开箱验视。托管物需要办理审批、检验等手续的，您应提交办理完相关手续的证明文件。供应链公司可以对托管物内件拍照取证，如发现禁止或限制寄递的物品，有权移交相关部门处理。</view>
+    <view>7.4 如实申报托管物的名称、性质、数量和价值，并准确填写寄件人、收件人的名称、地址、联系电话等信息。</view>
+    <view>8.您的违约赔偿责任：</view>
+    <view>8.1 因托管物有安全隐患、质量缺陷或包装破损，致使其他客户托管物、运输工具、存储设备、机械设备等被污染腐蚀、损坏，或造成人身伤亡的，您应承担赔偿责任。</view>
+    <view>8.2 因您违反第7条的义务导致供应链公司或第三人承担行政处罚、民事赔偿等所造成的各项经济损失，您应承担赔偿责任。</view>
+    <view>9.留置权</view>
+    <view>若您或您指定的付款人未付清费用的，供应链公司有权留置托管物，留置后您的债务履行期限为2个月（自揽收托管物品之日起计算），但托管物性质不能留置的除外。债务履行期限届满，您或指定付款人仍未付清费用的，供应链公司可以变卖、拍卖留置物并优先受偿。变卖、拍卖所得价款应优先支付供应链公司为行使留置权所支出的费用和保管费，再偿付拖欠供应链公司的费用；如有余额，可根据您的要求汇至您指定账户。</view>
+    <view>10.关于费用的约定：</view>
+    <view>您同意按此小程序公布的比例预缴纳部分费用作为上门服务费，若因您的原因造成上门后无法收件的，因实际上门服务行为已经产生，您应承担此部分费用，若因供应链公司原因无法收件的，由供应链公司承担此部分费用。</view>
+    <view>11.如果本条款中的某条款被法院或政府机构认定为无效或部分无效，则双方同意除无效条款外仍应执行本合同其它条款，部分有效条款在其可执行的范围内仍继续执行。</view>
+    <view>12.本条款履行过程中如发生争议，双方应友好协商解决。如协商不成的，应向人民法院提起诉讼。</view>
+  </view>
+   
+    <view class='bottom-agree'>
+      <button class='modal-button' bindtap='needAgree' disabled='{{btnDisabled}}'>{{btnText}}</button>
+    </view>
+  </view>
+
+</view>
+<my-tabbar></my-tabbar>
+<i-toast id="toast" />

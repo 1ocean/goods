@@ -1,0 +1,74 @@
+/* components/title-component.wxss */
+
+.line1 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.commonHead {
+  width: 100%;
+  height: 128rpx;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+  z-index: 10;
+}
+
+.commonHead-wrap {
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+  left: 0;
+  bottom: 0;
+  height: 45px;
+  line-height: 45px;
+}
+
+.commonHead_left {
+  width: 100rpx;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0
+}
+
+.commonHead_right {
+  /* width: 450rpx; */
+  width: 100%;
+  height: 100%;
+  line-height: 88rpx;
+  text-align: left;
+  font-size: 30rpx;
+  overflow: hidden;
+  /* justify-content:flex-end; */
+  display: flex;
+}
+
+.commonHead_right_text {
+  /* width: 450rpx; */
+  line-height: 45px;
+  text-indent:10px;
+  color:#fff;
+  font-size: 20px;
+}
+.back{
+  position: absolute; 
+  width: 100px;
+  height: 40px;
+}
+.back-icon{
+  position: absolute; 
+  top: 16px;
+  left: 14px;
+  width: 10px;
+  height: 10px;
+  border-top:2px solid #fff; 
+  border-left: 2px solid #fff;
+  transform: rotate(-45deg);
+}
+.back+view{
+ margin-left: 20px;
+}

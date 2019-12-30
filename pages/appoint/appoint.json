@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "my-title": "/components/title/title",
+    "my-tabbar": "/components/tabbar/tabbar",
+    "i-checkbox-group": "/dist/checkbox-group/index",
+    "i-checkbox": "/dist/checkbox/index",
+    "i-modal": "/dist/modal/index",
+    "i-toast": "/dist/toast/index",
+    "get-real-name": "/components/getRealName/getRealName"
+  }
+}

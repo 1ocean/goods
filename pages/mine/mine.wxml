@@ -1,0 +1,36 @@
+<my-title my-property='{{title}}'></my-title>
+<view class="top">
+  <image class='top-img' src='/assets/imgs/png/wode.png'></image>
+  <view class='top-main' bindtap='jumpRealName'>
+    <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    <text class="userinfo-telephone">{{realNameInfo.phone||'请先进行实名认证'}}</text>
+    <view class='top-main-right'></view>
+  </view>
+</view>
+<view class='center'>
+  <view class="center-head">
+    <view class='center-top-left'>我的订单</view>
+    <view class='center-top-right'>
+      查看全部
+      <view class='center-top-right-demo'></view>
+    </view>
+  </view>
+  <view class='center-body'>
+    <view class='center-middle-first' bindtap='jumpBooking'>
+      <image class='daituoguan' src='/assets/imgs/png/daifukuan.png'></image>
+      <text class='center-middle-first-wenzi'>已预约</text>
+      <text class='center-top-right-first-demo'></text>
+    </view>
+    <view class='center-middle-second' bindtap='jumpObligation'>
+      <image class='daituoguan' src='/assets/imgs/png/daituoguan.png'></image>
+      <text class='center-middle-first-wenzi'>待付款</text>
+      <text class='center-top-right-first-demo'></text>
+    </view>
+  </view>
+</view>
+<view class='bottom'>
+  <image class='bottom-image' src='/assets/imgs/png/mine_bottom.png'></image>
+</view>
+<my-tabbar tabbarIndex="2"></my-tabbar>
+<get-real-name show="{{getRealNameShow}}"></get-real-name>

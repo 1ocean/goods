@@ -1,0 +1,8 @@
+<!--components/getRealName/getRealName.wxml-->
+<view class='get-real-name-shadow' wx:if="{{show}}">
+  <view class="get-real-name-main">
+    <view class="get-real-name-image"><image src='/assets/imgs/svg/real_name.svg'></image></view>
+    <view class="get-real-name-text">尊敬的客户您好，根据《个人物品保管规定》，您在进行物品寄存前，必须要进行实名认证。</view>
+    <button class="get-real-name-button" bindtap='jumpRealName'>实名认证</button>
+  </view>
+</view>

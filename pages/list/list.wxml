@@ -1,0 +1,163 @@
+<my-title my-property='{{title}}'></my-title>
+<view class='list'>
+  <view class='list-head'></view>
+  <view class='list-body'>
+    <view class='list-body-image' wx:if="{{list.length>0}}">
+      <image mode='cover' src='/assets/imgs/png/kv.png'></image>
+    </view>
+    <view class='list-items-content' wx:if="{{list.length>0}}">
+      <view class='list-item' wx:for="{{list}}" wx:for-item="item" wx:key="index">
+        <view class='list-item-top'>
+          <image src="/assets/imgs/png/box.png" class="list-item-top-loop"></image>
+          <view style="font-size:18px;display:inline-block;line-height:20px;margin-left:30px;">
+            箱子编号：{{item.sharpCode}}
+          </view>
+          <view style="float:right;font-size:16px;" class="{{item.goodsStatus=='托管中'?'trusteeship':'taking'}}">
+            {{item.goodsStatus}}
+          </view>
+        </view>
+        <view class="list-item-content">
+          <view class='list-item-image'>
+            <image src="{{item.imgs[0]}}"></image>
+          </view>
+          <view class="list-item-main">
+            <view class="list-item-lables">
+              <view class="list-item-lable" wx:for="{{item.goodsTypes}}" wx:for-item="typeItem" wx:for-index="typeIndex" wx:key="typeIndex">
+                {{typeItem.goodsTypeName}}
+              </view>
+              <!-- <text class="list-item-lable">信件</text> -->
+            </view>
+            <view class='list-item-date'>托管日期：{{item.hostDate}}</view>
+            <view class="list-item-buttons">
+              <!-- <button data-index="{{index}}" bindtap='showDetail' class="detail-button">查看详情</button> -->
+              <button data-index="{{index}}" bindtap='paymoney' class="renew-button">续期缴费</button>
+              <button wx:if="{{item.goodsStatus!='取货中'}}" data-index="{{index}}" bindtap='getGoods' class="retrieval-button">
+                取货申请
+              </button>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="empty-image" wx:else>
+      <image src='/assets/imgs/png/empty.png'></image>
+      <view class="empty-text">您还没有寄存物品哦～</view>
+    </view>
+  </view>
+  <my-tabbar tabbarIndex="1"></my-tabbar>
+</view>
+<view class='thefirstshow' wx:if="{{getGoods}}">
+  <view class='main'>
+    <text class='main-top'>我要取货</text>
+    <view class='main-second'>
+      <view class='text'>
+        <view class='main-second-text'>
+          <view style='width:21px;heght:21px;background-color:rgb(163,196,238);border-radius:50px;text-align:center;vertical-align:middle;position:relative; '>
+            <image src='/assets/imgs/png/gift.png' style='height:15px;width:15px;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);'></image>
+          </view>
+          <text class='main-second-box'>箱子编号:</text>
+          <text class='main-second-box-text'>{{list[chooseIndex].sharpCode}}</text>
+        </view>
+        <view class='main-second-text'>
+          <view style='width:21px;heght:21px;background-color:rgb(163,196,238);border-radius:50px;text-align:center;vertical-align:middle;position:relative;'>
+            <image src='/assets/imgs/png/clock.png' style='height:15px;width:15px;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);'></image>
+          </view>
+          <text class='main-second-box'>托管到期:</text>
+          <text class='main-second-box-text'>{{list[chooseIndex].endShowTime}}</text>
+        </view>
+      </view>
+    </view>
+    <view class='main-third'>
+      <view class="send-body-form-line">
+        <view style='margin-left:15px;color:rgb(167,167,167);font-size:14px;'>联系人</view>
+        <view>
+          <input placeholder='请输入联系人' style="text-align:right;width:200px;font-size:16px;color:rgb(167,167,167);margin-right:10px;font-size:14px" value="{{realNameInfo.name}}" bindinput='inputPeople'></input>
+        </view>
+      </view>
+      <view class="send-body-form-line">
+        <view style='margin-left:15px;color:rgb(167,167,167);font-size:14px;'>联系方式</view>
+        <view>
+          <input placeholder='请输入联系方式' style="text-align:right;width:200px;font-size:16px;color:rgb(167,167,167);margin-right:10px;font-size:14px" value="{{realNameInfo.phone}}" bindinput='inputPeoplePhone'></input>
+        </view>
+      </view>
+      <view class="send-body-form-line">
+        <view style='margin-left:15px;color:rgb(167,167,167);font-size:14px;'>送达地址</view>
+        <view>
+          <input placeholder='请输入送达地址' style="text-align:right;width:200px;font-size:16px;color:rgb(167,167,167);margin-right:10px;font-size:14px" value="{{realNameInfo.address}}" bindinput='inputAddress'></input>
+        </view>
+      </view>
+      <view class="send-body-form-line">
+        <view style='margin-left:15px;color:rgb(167,167,167);font-size:14px;'>备注</view>
+        <view>
+          <input placeholder='请输入备注' style="text-align:right;width:200px;font-size:14px;color:rgb(167,167,167);margin-right:10px;font-size:14px" value="{{goodsRemark}}" bindinput='goodsInputRemark'></input>
+        </view>
+      </view>
+      <view class="price">
+        <view style='margin-left:15px;color:rgb(167,167,167);font-size:13px;'>
+          <view style="text-align:right;width:200px;font-size:20px;color:green;font-weight:bolder">
+            ￥{{goodscost}}
+          </view>
+          物流费用
+        </view>
+      </view>
+      <button class="sure" bindtap='paygetGoods'>确定</button>
+      <button class="cancel" bindtap='goodsCancel'>取消</button>
+      <view></view>
+    </view>
+  </view>
+</view>
+<view class='thefirstshow' wx:if="{{payMoneyShow}}">
+  <view class='main'>
+    <text class='main-top'>我要续期</text>
+    <view class='main-second'>
+      <view class='text'>
+        <view class='main-second-text'>
+          <view style='width:21px;heght:21px;background-color:rgb(163,196,238);border-radius:50px;text-align:center;vertical-align:middle;position:relative;'>
+            <image src='/assets/imgs/png/gift.png' style='height:15px;width:15px;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);'></image>
+          </view>
+          <view class='main-second-box'>箱子编号:</view>
+          <view class='main-second-box-text'>{{list[chooseIndex].sharpCode}}</view>
+        </view>
+        <view class='main-second-text'>
+          <view style='width:21px;heght:21px;background-color:rgb(163,196,238);border-radius:50px;text-align:center;vertical-align:middle;position:relative;'>
+            <image src='/assets/imgs/png/clock.png' style='height:15px;width:15px;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);'></image>
+          </view>
+          <text class='main-second-box'>托管到期:</text>
+          <text class='main-second-box-text'>{{list[chooseIndex].endShowTime}}</text>
+        </view>
+      </view>
+    </view>
+    <view class='main-third'>
+      <view class="send-body-form-line">
+        <view style='margin-left:15px;color:rgb(167,167,167);font-size:14px;'>续存周期</view>
+        <view>
+          <picker bindchange="bindPickerChange" value="{{index}}" range="{{cycle}}" style="margin-right:20px;" id="picker">
+            <view class="picker" style="font-size:14px;">
+              {{cycle[index]}}
+              <image class="select-arrow-down" src="/assets/imgs/svg/arrow_down.svg"></image>
+            </view>
+          </picker>
+          <!-- <text style="text-align:right;width:200px;font-size:16px;color:rgb(167,167,167);margin-right:10px;" ></text> -->
+        </view>
+      </view>
+      <view class="send-body-form-line">
+        <view style='margin-left:15px;color:rgb(167,167,167);font-size:14px;'>备注</view>
+        <view>
+          <input placeholder='请输入备注' style="text-align:right;width:200px;font-size:16px;color:rgb(167,167,167);margin-right:10px;font-size:14px;" value="{{remark}}" bindinput='inputRemark'></input>
+        </view>
+      </view>
+      <view class="price">
+        <view style='margin-left:15px;color:rgb(167,167,167);font-size:13px;'>
+          <view style="text-align:right;width:200px;font-size:20px;color:green;font-weight:bolder">
+            ￥{{cost}}
+          </view>
+          托管费用
+        </view>
+      </view>
+      <button class="sure" bindtap='renewal'>确定</button>
+      <button class="cancel" bindtap='cancel'>取消</button>
+      <view></view>
+    </view>
+  </view>
+</view>
+<i-toast id="toast" />

@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "my-title": "/components/title/title",
+    "my-tabbar": "/components/tabbar/tabbar",
+    "i-toast": "/dist/toast/index"
+  }
+}

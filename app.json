@@ -1,0 +1,21 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/booking/booking",
+    "pages/send/send",
+    "pages/list/list",
+    "pages/appoint/appoint",
+    "pages/mine/mine",
+    "pages/realName/realName",
+    "pages/obligation/obligation",
+    "pages/cleanReport"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarTitleText": "雏鹰计划",
+    "navigationBarBackgroundColor": "#0f9cf0",
+    "navigationBarTextStyle": "white",
+    "navigationStyle": "custom"
+  },
+  "sitemapLocation": "sitemap.json"
+}

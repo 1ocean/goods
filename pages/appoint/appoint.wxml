@@ -1,0 +1,88 @@
+<my-title my-property='{{title}}'></my-title>
+<view class="send">
+  <view class="send-top"></view>
+  <view class='send-body'>
+    <view class="send-body-form-line">
+      <view>物品类型</view>
+      <view class='checkbox-group'>
+        <i-checkbox-group current="{{current}}" bindchange="handleFruitChange">
+          <i-checkbox wx:for="{{type}}" position="left" wx:key="{{item.id}}" value="{{item.name}}" i-class="iview-checkbox"></i-checkbox>
+        </i-checkbox-group>
+      </view>
+    </view>
+    <view class="send-body-form-line">
+      <view style="width:100px;text-align:lfet;text-align-last:left;">
+        物品清单
+        <view style="font-size:12px;color:#aaa;">(最多上传6张)</view>
+      </view>
+      <view class="{{goodsImg.length>0?'upload-iamge-content has-image':'upload-iamge-content'}}">
+        <view class="upload-image" wx:for="{{goodsImg}}" wx:for-item="item" wx:key="index" data-index="{{index}}" bindtap="showDetailImg">
+          <image src="{{item}}"></image>
+        </view>
+        <view class="upload-image" bindtap="openCamera" wx:if="{{goodsImg.length<6}}">
+          <view class="cross">
+            <image src="/assets/imgs/svg/cross.svg"></image>
+          </view>
+          <view class="upload-image-text">上传照片</view>
+        </view>
+      </view>
+    </view>
+    <view class="send-body-form-line">
+      <view>上门时间</view>
+      <view style="display:flex;">
+        <picker mode="date" value="{{date}}" start="2019-07-03" bindchange="bindDateChange" style='position:relative;margin-right:10px;'>
+          <view class="picker">
+            {{date}}
+            <image class="select-arrow-down" src="/assets/imgs/svg/arrow_down.svg"></image>
+          </view>
+        </picker>
+        <picker mode="time" value="{{time}}" start="09:00" end="18:00" bindchange="bindTimeChange" style='position:relative;'>
+          <view class="picker">
+            {{time}}
+            <image class="select-arrow-down" src="/assets/imgs/svg/arrow_down.svg"></image>
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="send-body-form-line">
+      <view>预约人</view>
+      <view>
+        <input placeholder='请填写预约人姓名' placeholder-style='text-align:right;font-size:14px;' style="text-align:right;width:200px;font-size:16px;color:#404040;" bindinput="inputName" value="{{realNameInfo.name}}"></input>
+      </view>
+    </view>
+    <view class="send-body-form-line">
+      <view>联系电话</view>
+      <view>
+        <input placeholder='请填写预约人联系电话' placeholder-style='text-align:right;font-size:14px;' style="text-align:right;width:200px;font-size:16px;color:#404040;" bindinput="inputPhone" value="{{realNameInfo.phone}}"></input>
+      </view>
+    </view>
+    <view class="send-body-form-line">
+      <view>上门地址</view>
+      <view>
+        <input placeholder='请填写预约人地址' placeholder-style='text-align:right;font-size:14px;' style="text-align:right;width:200px;font-size:16px;color:#404040;" bindinput="inputAddress" value="{{realNameInfo.address}}"></input>
+      </view>
+    </view>
+    <view class="send-body-form-line">
+      <view>备注</view>
+      <view>
+        <input placeholder='请输入备注' placeholder-style='text-align:right;font-size:14px;' style="text-align:right;width:200px;font-size:16px;color:#404040;" bindinput="inputRemark" value="{{remark}}"></input>
+      </view>
+    </view>
+    <button class="confirm" bindtap="sendConfirm">预约寄存</button>
+    <view class="image-swipper" wx:if="{{swipperShow}}" bindtap="hideSwipper">
+      <view class="top-icons">
+        <image class="delete-icon" src="/assets/imgs/svg/delete.svg" catchtap="showDeleteImg"></image>
+      </view>
+      <view class="image-content">
+        <image src="{{goodsImg[deleteUploadImgIndex]}}"></image>
+      </view>
+      <view class="bottom-num">{{deleteUploadImgIndex+1}}/{{goodsImg.length}}</view>
+    </view>
+    <i-modal title="删除" visible="{{ deleteModelShow }}" bind:ok="deleteImg" bind:cancel="cancelDelete">
+      <view>确认删除该图片</view>
+    </i-modal>
+  </view>
+  <my-tabbar></my-tabbar>
+</view>
+<i-toast id="toast" />
+<get-real-name show="{{getRealNameShow}}"></get-real-name>
